@@ -22,10 +22,4 @@ Together, we are building the open web. Your contributions and feedback are vita
 - **Discuss**: Join discussions in our [GitHub Community](https://github.com/Automattic/gravatar/discussions) and share your ideas and experiences.
 - **Learn**: Check out our [Documentation](https://docs.gravatar.com/getting-started/) for detailed guides and API references.
 
-## Get Started
-1. **Fork** this repository (or the repo of the project you are working with) to your GitHub account.
-2. **Clone** your fork to your local machine.
-3. **Explore** the SDKs and tools available.
-4. **Develop** and **contribute** your enhancements.
-
 We are excited to see what you build with Gravatar. Let’s make the web more personalized and connected!
