@@ -20,7 +20,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: web/packages/hovercards
+        working-directory: ./web/packages/hovercards
 
     steps: 
       - name: Checkout repo

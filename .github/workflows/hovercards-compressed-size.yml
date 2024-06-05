@@ -1,6 +1,9 @@
 name: Hovercards Package Size
 
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - 'web/packages/hovercards/**'
 
 jobs:
   build:
@@ -8,7 +11,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: web/packages/hovercards
+        working-directory: ./web/packages/hovercards
 
     steps:
       - uses: actions/checkout@v4
