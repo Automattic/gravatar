@@ -6,6 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [ "gravatar", "profile", "hovercards", "iso sdk", "android sdk" ],
+  "keywords": [ "gravatar", "profile", "hovercards", "ios sdk", "android sdk" ],
   "license": "GPL-2.0-or-later"
 }
