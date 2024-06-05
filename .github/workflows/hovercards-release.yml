@@ -18,16 +18,15 @@ jobs:
     permissions:
       contents: write
 
-    defaults:
-      run:
-        working-directory: ./web/packages/hovercards
-
     steps: 
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GRAVATAR_GITHUB_TOKEN }}
+
+      - name: Set up working directory
+        run: cd web/packages/hovercards
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

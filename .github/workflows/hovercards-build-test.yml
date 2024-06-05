@@ -12,13 +12,12 @@ jobs:
       matrix:
         node-version: [20]
 
-    defaults:
-      run:
-        working-directory: ./web/packages/hovercards
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+
+      - name: Set up working directory
+        run: cd web/packages/hovercards
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
