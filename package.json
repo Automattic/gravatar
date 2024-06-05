@@ -1,0 +1,11 @@
+{
+  "name": "gravatar-monorepo",
+  "author": "Automattic Inc.",
+  "version": "1.0.0",
+  "description": "Welcome to the parent repo for all things Gravatar!",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [ "gravatar", "profile", "hovercards", "ios sdk", "android sdk" ],
+  "license": "GPL-2.0-or-later"
+}
