@@ -1,0 +1,103 @@
+{
+	"name": "@gravatar-com/hovercards",
+	"version": "0.7.0",
+	"description": "Add profile hovercards to Gravatar images.",
+	"homepage": "https://github.com/Automattic/gravatar/web/packages/hovercards#readme",
+	"bugs": "https://github.com/Automattic/gravatar/issues",
+	"repository": "https://github.com/Automattic/gravatar/web/packages/hovercards",
+	"author": "Automattic Inc.",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"gravatar",
+		"gravatar-image",
+		"profile",
+		"gravatar-profile",
+		"hovercard",
+		"hovercards",
+		"gravatar-hovercards",
+		"typescript",
+		"react",
+		"hooks",
+		"react-hooks"
+	],
+	"packageManager": "yarn@3.6.1",
+	"engines": {
+		"node": ">=20"
+	},
+	"types": "dist/index.d.ts",
+	"main": "dist/index.js",
+	"module": "dist/index.esm.js",
+	"unpkg": "dist/index.umd.js",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		},
+		"./react": {
+			"types": "./dist/index.react.d.ts",
+			"import": "./dist/index.react.mjs",
+			"require": "./dist/index.react.js"
+		},
+		"./package.json": "./package.json",
+		"./dist/style.css": {
+			"import": "./dist/style.css",
+			"require": "./dist/style.css"
+		}
+	},
+	"files": [
+		"dist",
+		"LICENSE.md"
+	],
+	"scripts": {
+		"start": "webpack serve --config ./webpack/config.playground.js",
+		"build": "yarn clean:dist && run-p 'build:types' 'build:core' 'build:react'",
+		"build:types": "tsc --declaration --declarationMap --emitDeclarationOnly",
+		"build:core": "webpack --config ./webpack/config.core.js --node-env=production",
+		"build:react": "webpack --config ./webpack/config.react.js --node-env=production",
+		"build:dev": "yarn clean:dist && run-p 'build:types' 'build:core --node-env=development' 'build:react --node-env=development'",
+		"build:watch": "yarn build:dev && watch 'yarn build:dev' ./src",
+		"format": "wp-scripts format",
+		"type-check": "tsc --noEmit",
+		"lint:js": "wp-scripts lint-js",
+		"lint:style": "wp-scripts lint-style",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint": "run-p 'lint:*'",
+		"clean:dist": "rimraf dist",
+		"clean:release": "rimraf release",
+		"clean": "run-p 'clean:*'",
+		"prepare": "husky install",
+		"release": "release-it"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.22.10",
+		"@babel/preset-env": "^7.22.10",
+		"@babel/preset-react": "^7.22.5",
+		"@babel/preset-typescript": "^7.22.5",
+		"@wordpress/eslint-plugin": "^14.12.0",
+		"@wordpress/scripts": "^26.9.0",
+		"autoprefixer": "^10.4.14",
+		"babel-loader": "^9.1.3",
+		"css-loader": "^6.8.1",
+		"html-webpack-plugin": "^5.5.3",
+		"lint-staged": "^13.2.3",
+		"mini-css-extract-plugin": "^2.7.6",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.4.27",
+		"postcss-loader": "^7.3.3",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"release-it": "^16.1.4",
+		"rimraf": "^5.0.1",
+		"sass": "^1.65.1",
+		"sass-loader": "^13.3.2",
+		"style-loader": "^3.3.3",
+		"terser-webpack-plugin": "^5.3.9",
+		"typescript": "^5.1.6",
+		"watch": "^1.0.2",
+		"webpack": "^5.88.2",
+		"webpack-cli": "^5.1.4",
+		"webpack-dev-server": "^4.15.1",
+		"webpack-remove-empty-scripts": "^1.0.3"
+	}
+}

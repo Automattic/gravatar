@@ -1,0 +1,186 @@
+$color-black: #000;
+$color-white: #fff;
+$color-super-light-gray: #eee;
+$color-light-gray: #d8dbdd;
+$color-gray: #707070;
+$color-blue: #1d4fc4;
+
+@mixin ellipsis($lineCount: 1) {
+	display: -webkit-box;
+	-webkit-line-clamp: $lineCount;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-word;
+}
+
+.gravatar-hovercard {
+	display: inline-block;
+	z-index: 10000000;
+
+	h4,
+	p {
+		margin: 0;
+	}
+
+	p,
+	i,
+	a {
+		font-family:
+			"SF Pro Text",
+			-apple-system,
+			BlinkMacSystemFont,
+			"Segoe UI",
+			Roboto,
+			Oxygen-Sans,
+			Ubuntu,
+			Cantarell,
+			"Helvetica Neue",
+			sans-serif;
+		font-size: 14px;
+		line-height: 1.5;
+		color: $color-black;
+	}
+
+	.gravatar-hovercard__inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 400px;
+		height: 213px;
+		padding: 24px 24px 16px;
+		background-color: $color-white;
+		border: 1px solid $color-light-gray;
+		border-radius: 4px;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+		box-sizing: border-box;
+	}
+
+	.gravatar-hovercard__header {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.gravatar-hovercard__avatar-link,
+	.gravatar-hovercard__social-link {
+		display: inline-flex;
+	}
+
+	.gravatar-hovercard__avatar {
+		border-radius: 50%;
+		background-color: $color-super-light-gray;
+	}
+
+	.gravatar-hovercard__personal-info-link {
+		text-decoration: none;
+	}
+
+	.gravatar-hovercard__name {
+
+		@include ellipsis(2);
+
+		font-family: Helvetica, Arial, Tahoma, sans-serif;
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 1.25;
+		color: $color-black;
+	}
+
+	.gravatar-hovercard__job,
+	.gravatar-hovercard__location {
+
+		@include ellipsis(1);
+
+		color: $color-gray;
+	}
+
+	.gravatar-hovercard__body {
+		min-height: 42px;
+	}
+
+	.gravatar-hovercard__description {
+
+		@include ellipsis(2);
+	}
+
+	.gravatar-hovercard__footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.gravatar-hovercard__social-links {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.gravatar-hovercard__profile-link {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		gap: 4px;
+
+		.gravatar-hovercard__profile-link-text {
+			color: $color-gray;
+		}
+
+		path {
+			stroke: $color-gray;
+		}
+	}
+
+	.gravatar-hovercard__profile-link--edit {
+
+		.gravatar-hovercard__profile-link-text {
+			color: $color-blue;
+		}
+
+		path {
+			stroke: $color-blue;
+		}
+	}
+}
+
+.gravatar-hovercard--skeleton {
+
+	.gravatar-hovercard__avatar-link,
+	.gravatar-hovercard__personal-info-link,
+	.gravatar-hovercard__social-link,
+	.gravatar-hovercard__profile-link {
+		background-color: $color-super-light-gray;
+	}
+
+	.gravatar-hovercard__avatar-link {
+		width: 72px;
+		height: 72px;
+		border-radius: 50%;
+	}
+
+	.gravatar-hovercard__personal-info-link {
+		height: 20px;
+		width: 50%;
+	}
+
+	.gravatar-hovercard__social-link {
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+	}
+
+	.gravatar-hovercard__profile-link {
+		height: 16px;
+		width: 96px;
+	}
+
+	.gravatar-hovercard__inner--error {
+		align-items: center;
+		justify-content: start;
+		gap: 34px;
+	}
+
+	.gravatar-hovercard__error-message {
+		color: $color-gray;
+	}
+}

@@ -1,0 +1,55 @@
+name: Hovercards Release & Publish to NPM
+
+on: 
+  workflow_dispatch:
+    inputs:
+      increment:
+        type: choice
+        description: 'Version type'
+        required: true
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    defaults:
+      run:
+        working-directory: web/packages/hovercards
+
+    steps: 
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GRAVATAR_GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Initialize Git user
+        run: |
+          git config user.name "gravatar-automattic"
+          git config user.email "gravatar@automattic.com"
+
+      - name: Initialize the NPM config
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Release
+        run: yarn release ${{ github.event.inputs.increment }} --ci
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GRAVATAR_GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

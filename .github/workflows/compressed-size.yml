@@ -1,0 +1,15 @@
+name: Hovercards Package Size
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: web/packages/hovercards
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: preactjs/compressed-size-action@v2

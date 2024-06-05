@@ -12,7 +12,7 @@ Easily integrate Gravatar into your Android applications. With our SDK, you can 
 ### [Gravatar iOS SDK](https://github.com/Automattic/Gravatar-SDK-iOS)
 Bring Gravatar to your iOS apps with minimal effort. Our iOS SDK provides tools to fetch and display Gravatar avatars and profiles, helping you create personalized and consistent user experiences.
 
-### [Gravatar Hovercards](https://github.com/gravatar/hovercards)
+### [Gravatar Hovercards](blob/trunk/web/packages/hovercards)
 Enhance your web applications with Gravatar Hovercards. Display user avatars and profiles on hover, providing quick access to user information without cluttering your UI.
 
 ## Join Our Community
