@@ -8,9 +8,6 @@ on:
 jobs:
   build: 
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: web/packages/hovercards
     strategy:
       matrix:
         node-version: [20]
@@ -24,6 +21,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
+          cache-dependency-path: web/packages/hovercards/yarn.lock
 
       - name: Install dependencies
         working-directory: web/packages/hovercards
