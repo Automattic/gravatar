@@ -1,8 +1,8 @@
 # Gravatar Hovercards
 
 [![npm](https://img.shields.io/npm/v/@gravatar-com/hovercards)](https://npm.im/@gravatar-com/hovercards)
-[![build](https://img.shields.io/github/actions/workflow/status/gravatar/hovercards/hovercards-build-test.yml)](https://github.com/Automattic/gravatar/actions/workflows/hovercards-build-test.yml)
-[![release](https://img.shields.io/github/actions/workflow/status/gravatar/hovercards/hovercards-release.yml?label=release)](https://github.com/Automattic/gravatar/actions/workflows/hovercards-release.yml)
+[![build](https://img.shields.io/github/actions/workflow/status/Automattic/gravatar/hovercards-build-test.yml)](https://github.com/Automattic/gravatar/actions/workflows/hovercards-build-test.yml)
+[![release](https://img.shields.io/github/actions/workflow/status/Automattic/gravatar/hovercards-release.yml?label=release)](https://github.com/Automattic/gravatar/actions/workflows/hovercards-release.yml)
 [![package size](https://img.shields.io/bundlephobia/minzip/@gravatar-com/hovercards?label=minzipped%20size)](https://bundlephobia.com/package/@gravatar-com/hovercards)
 [![downloads](https://img.shields.io/npm/dm/@gravatar-com/hovercards)](https://npmtrends.com/@gravatar-com/hovercards)
 [![downloads](https://img.shields.io/npm/dt/@gravatar-com/hovercards)](https://npmtrends.com/@gravatar-com/hovercards)
