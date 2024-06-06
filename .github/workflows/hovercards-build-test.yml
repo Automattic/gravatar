@@ -26,13 +26,17 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
+        working-directory: web/packages/hovercards
         run: yarn
 
       - name: Type check
+        working-directory: web/packages/hovercards
         run: yarn type-check
 
       - name: Lint
+        working-directory: web/packages/hovercards
         run: yarn lint
 
       - name: Build
+        working-directory: web/packages/hovercards
         run: yarn build

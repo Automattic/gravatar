@@ -8,10 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: web/packages/hovercards
 
     steps:
       - uses: actions/checkout@v4
       - uses: preactjs/compressed-size-action@v2
+        with:
+          cwd: web/packages/hovercards
