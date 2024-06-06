@@ -18,13 +18,14 @@ The general development workflow is as follows:
 
 1. Fork and clone the repository.
 2. Create a new branch, using [the branch naming scheme](https://github.com/Automattic/wp-calypso/blob/trunk/docs/git-workflow.md#branch-naming-scheme), e.g. `add/a-cool-feature` or `fix/100-a-bug`.
-3. Install the dependencies by running `yarn install`. Make sure your Node version matches the minimum requirement specified in the `package.json` file.
-4. Build the library in development mode using `yarn build:watch`. This command compiles the code and watches for changes.
-5. **In a new terminal**, start a local server with `yarn start`. Now you can modify the code in the `src` folder and test it (or the output formats) in the `playground` directory.
-6. Update or add the related types if necessary.
-7. If needed, update the relevant documentation such as [README.md](web/packages/hovercards/README.md) or [CONTRIBUTING.md](web/packages/hovercards/CONTRIBUTING.md).
-8. Commit your changes and check if all the automated tests pass. (You can fix linting errors by running `yarn lint:<TYPE> --fix`)
-9. Create a Pull Request with your changes.
+3. Navigate to the project directory by running `cd web/packages/hovercards`.
+4. Install the dependencies by running `yarn install`. Make sure your Node version matches the minimum requirement specified in the `package.json` file.
+5. Build the library in development mode using `yarn build:watch`. This command compiles the code and watches for changes.
+6. **In a new terminal**, start a local server with `yarn start`. Now you can modify the code in the `src` folder and test it (or the output formats) in the `playground` directory.
+7. Update or add the related types if necessary.
+8. If needed, update the relevant documentation such as [README.md](README.md) or [CONTRIBUTING.md](CONTRIBUTING.md).
+9. Commit your changes and check if all the automated tests pass. (You can fix linting errors by running `yarn lint:<TYPE> --fix`)
+10. Create a Pull Request with your changes.
 
 ### Scripts
 
@@ -60,7 +61,7 @@ Below is a list of available scripts. You can run them using `yarn <script>`:
 This project utilizes [release-it](https://github.com/release-it/release-it) for automating releases across both [NPM](https://npm.im/@gravatar-com/hovercards) and [GitHub](https://github.com/Automattic/gravatar/releases). There're two ways to create a new release:
 
 - GitHub Action:
-    - Go to the [release action page](https://github.com/Automattic/gravatar/actions/workflows/release.yml)
+    - Go to the [release action page](https://github.com/Automattic/gravatar/actions/workflows/hovercards-hovercards-release.yml)
     - Click on the `Run workflow` button
     - Choose the appropriate `Version type` (we use [Semantic Versioning](https://semver.org/))
     - Confirm by clicking on `Run workflow` again
