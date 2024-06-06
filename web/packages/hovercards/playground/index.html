@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Gravatar Hovercards</title>
+	</head>
+	<style>
+		#main {
+			display: flex;
+			justify-content: space-around;
+			padding: 10rem 400px 10rem;
+			height: 100vh;
+		}
+
+		#vanilla {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 5rem;
+		}
+
+		#attr {
+			color: blue;
+			cursor: pointer;
+		}
+	</style>
+	<body>
+		<main id="main">
+			<div id="vanilla">
+				<img
+					src="https://www.gravatar.com/avatar/33252cd1f33526af53580fcb1736172f06e6716f32afdd1be19ec3096d15dea5?s=60&d=retro&r=g"
+					width="60"
+					height="60"
+				/>
+				<img
+					src="https://www.gravatar.com/avatar/c3bb8d897bb538896708195dd9eb162f585654611c50a3a1c9a16a7b64f33270"
+					width="60"
+					height="60"
+				/>
+				<div id="attr" data-gravatar-hash="c3bb8d897bb538896708195dd9eb162f585654611c50a3a1c9a16a7b64f33270?s=60&d=retro&r=g">@WellyTest</div>
+				<div id="inline-hovercard"></div>
+			</div>
+			<div id="react-app"></div>
+		</main>
+	</body>
+</html>

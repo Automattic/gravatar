@@ -1,0 +1,42 @@
+name: Hovercards Type check / Lint / Build
+
+on:
+  pull_request:
+    paths:
+      - 'web/packages/hovercards/**'
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web/packages/hovercards
+    strategy:
+      matrix:
+        node-version: [20]
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: Install dependencies
+        working-directory: web/packages/hovercards
+        run: yarn
+
+      - name: Type check
+        working-directory: web/packages/hovercards
+        run: yarn type-check
+
+      - name: Lint
+        working-directory: web/packages/hovercards
+        run: yarn lint
+
+      - name: Build
+        working-directory: web/packages/hovercards
+        run: yarn build
