@@ -53,16 +53,16 @@ Below is a list of available scripts. You can run them using `npm run <script>`:
 
 - Pull Requests (PRs) must pass all automated tests and receive approval from at least one reviewer before they can be merged into the `trunk` branch.
 - Who is responsible for merging the approved PRs?
-    - For PRs authored by external individuals who do not have push permissions, the reviewer who approved the PR will handle the merging process.
-    - For PRs authored by contributors who have push permissions, the author of the PR will merge their own PR.
+  - For PRs authored by external individuals who do not have push permissions, the reviewer who approved the PR will handle the merging process.
+  - For PRs authored by contributors who have push permissions, the author of the PR will merge their own PR.
 
 ## Release Process
 
 This project utilizes [release-it](https://github.com/release-it/release-it) for automating releases across both [NPM](https://npm.im/@gravatar-com/hovercards) and [GitHub](https://github.com/Automattic/gravatar/releases). There're two ways to create a new release:
 
 - GitHub Action:
-    - Go to [the release action page](https://github.com/Automattic/gravatar/actions/workflows/hovercards-hovercards-release.yml)
-    - Click on the `Run workflow` button
-    - Choose the appropriate `Version type` (we use [Semantic Versioning](https://semver.org/))
-    - Confirm by clicking on `Run workflow` again
+  - Go to [the release action page](https://github.com/Automattic/gravatar/actions/workflows/hovercards-hovercards-release.yml)
+  - Click on the `Run workflow` button
+  - Choose the appropriate `Version type` (we use [Semantic Versioning](https://semver.org/))
+  - Confirm by clicking on `Run workflow` again
 - Local Release (with the push permission): Run `npm run release` and follow the instructions.
