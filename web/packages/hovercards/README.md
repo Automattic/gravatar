@@ -205,7 +205,7 @@ Additional class names to be added to the outermost element of the hovercard. Th
 
 ##### `myHash: string = ''`
 
-It enables personalized hovercard features for **the current user**. It allows displaying customized options like "Edit your profile" when the user's "about me" field is empty on their [Gravatar editing page](https://gravatar.com/profiles/edit).
+It enables personalized hovercard features for **the current user**. It allows displaying customized options like "Edit your profile" when the user's "about me" field is empty on their [Gravatar editing page](https://gravatar.com/profile).
 
 ##### `onQueryHovercardRef: ( ref: HTMLElement ) => HTMLElement`
 
