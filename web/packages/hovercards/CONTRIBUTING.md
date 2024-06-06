@@ -22,7 +22,7 @@ The general development workflow is as follows:
 4. Build the library in development mode using `yarn build:watch`. This command compiles the code and watches for changes.
 5. **In a new terminal**, start a local server with `yarn start`. Now you can modify the code in the `src` folder and test it (or the output formats) in the `playground` directory.
 6. Update or add the related types if necessary.
-7. If needed, update the relevant documentation such as [README.md](blob/trunk/web/packages/hovercards/README.md) or [CONTRIBUTING.md](blob/trunk/web/packages/hovercards/CONTRIBUTING.md).
+7. If needed, update the relevant documentation such as [README.md](web/packages/hovercards/README.md) or [CONTRIBUTING.md](web/packages/hovercards/CONTRIBUTING.md).
 8. Commit your changes and check if all the automated tests pass. (You can fix linting errors by running `yarn lint:<TYPE> --fix`)
 9. Create a Pull Request with your changes.
 

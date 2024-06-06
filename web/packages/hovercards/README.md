@@ -456,8 +456,8 @@ The hook accepts the same options and methods as the `Hovercards` class. Please 
 
 This library is written in TypeScript and comes with type definitions. You can check the following files for the available types:
 
-- [For Vanilla JavaScript](blob/trunk/web/packages/hovercards/src/index.ts)
-- [For React](blob/trunk/web/packages/hovercards/src/index.react.ts)
+- [For Vanilla JavaScript](web/packages/hovercards/src/index.ts)
+- [For React](web/packages/hovercards/src/index.react.ts)
 
 ## Translations
 
@@ -482,8 +482,8 @@ The `i18n` option is an object that maps from the English text to the language o
 
 ## Contribute to Gravatar Hovercards
 
-We welcome contributions to this project. Please follow the guidelines outlined in the [CONTRIBUTING.md](blob/trunk/web/packages/hovercards/CONTRIBUTING.md) file.
+We welcome contributions to this project. Please follow the guidelines outlined in the [CONTRIBUTING.md](web/packages/hovercards/CONTRIBUTING.md) file.
 
 ## License
 
-Gravatar Hovercards is licensed under [GNU General Public License v2 (or later)](blob/trunk/web/packages/hovercards/LICENSE.md).
+Gravatar Hovercards is licensed under [GNU General Public License v2 (or later)](web/packages/hovercards/LICENSE.md).
