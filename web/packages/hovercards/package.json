@@ -20,7 +20,6 @@
 		"hooks",
 		"react-hooks"
 	],
-	"packageManager": "yarn@3.6.1",
 	"engines": {
 		"node": ">=20"
 	},
@@ -51,12 +50,12 @@
 	],
 	"scripts": {
 		"start": "webpack serve --config ./webpack/config.playground.js",
-		"build": "yarn clean:dist && run-p 'build:types' 'build:core' 'build:react'",
+		"build": "npm run clean:dist && run-p 'build:types' 'build:core' 'build:react'",
 		"build:types": "tsc --declaration --declarationMap --emitDeclarationOnly",
 		"build:core": "webpack --config ./webpack/config.core.js --node-env=production",
 		"build:react": "webpack --config ./webpack/config.react.js --node-env=production",
-		"build:dev": "yarn clean:dist && run-p 'build:types' 'build:core --node-env=development' 'build:react --node-env=development'",
-		"build:watch": "yarn build:dev && watch 'yarn build:dev' ./src",
+		"build:dev": "npm run clean:dist && run-p 'build:types' 'build:core --node-env=development' 'build:react --node-env=development'",
+		"build:watch": "npm run build:dev && watch 'npm run build:dev' ./src",
 		"format": "wp-scripts format",
 		"type-check": "tsc --noEmit",
 		"lint:js": "wp-scripts lint-js",

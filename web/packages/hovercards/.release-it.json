@@ -18,8 +18,8 @@
 		"before:init": [
 			"git pull",
 			"cd web/packages/hovercards",
-			"yarn build",
-			"yarn clean:release",
+			"npm run build",
+			"npm run clean:release",
 			"mkdir -p release/hovercards",
 			"cp -r dist/* release/hovercards",
 			"(cd release; zip -r hovercards.zip hovercards/*)"

@@ -20,21 +20,26 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
-          cache-dependency-path: web/packages/hovercards/yarn.lock
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            web/packages/hovercards/package-lock.json
+
+      - name: Install root dependencies
+        run: npm install
 
       - name: Install dependencies
         working-directory: web/packages/hovercards
-        run: yarn
+        run: npm install
 
       - name: Type check
         working-directory: web/packages/hovercards
-        run: yarn type-check
+        run: npm run type-check
 
       - name: Lint
         working-directory: web/packages/hovercards
-        run: yarn lint
+        run: npm run lint
 
       - name: Build
         working-directory: web/packages/hovercards
-        run: yarn build
+        run: npm run build

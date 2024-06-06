@@ -28,24 +28,24 @@ Gravatar Hovercards is an easy-to-use library that brings [Gravatar](https://gra
 
 This Gravatar Hovercards library supports both Vanilla JavaScript (including [TypeScript](https://www.typescriptlang.org/)) and [React](https://react.dev/). Install it via [Yarn](https://yarnpkg.com/), [NPM](https://www.npmjs.com/), or directly include it via [UNPKG](https://unpkg.com/) CDN.
 
-### Install with Yarn or NPM
+### Install with NPM or Yarn
 
 Add the package to your project:
-
-```bash
-yarn add @gravatar-com/hovercards
-```
-
-or
 
 ```bash
 npm install @gravatar-com/hovercards
 ```
 
+or
+
+```bash
+yarn add @gravatar-com/hovercards
+```
+
 For React, also add `react` and `react-dom` (`v16.8.0` or above):
 
 ```bash
-yarn add react react-dom @gravatar-com/hovercards
+npm install add react react-dom @gravatar-com/hovercards
 ```
 
 ### Install with UNPKG
