@@ -461,7 +461,7 @@ This library is written in TypeScript and comes with type definitions. You can c
 
 ## Translations
 
-A few items of text are used when displaying a hovercard. The library contains English by default, but you can supply your own translations through the use of the [`i18n`](#i18n-record-string-string) option.
+A few items of text are used when displaying a hovercard. The library contains English by default, but you can supply your own translations through the use of the [`i18n`](#i18n-record-string-string-) option.
 
 The following phrases are used:
 
