@@ -6,7 +6,7 @@
 	},
 	"github": {
 		"release": true,
-		"assets": [ "web/packages/hovercards/release/hovercards.zip" ]
+		"assets": ["web/packages/hovercards/release/hovercards.zip"]
 	},
 	"npm": {
 		"publish": true

@@ -21,15 +21,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-          cache-dependency-path: |
-            package-lock.json
-            web/packages/hovercards/package-lock.json
-
-      - name: Install root dependencies
-        run: npm install
 
       - name: Install dependencies
-        working-directory: web/packages/hovercards
         run: npm install
 
       - name: Type check

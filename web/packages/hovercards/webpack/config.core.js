@@ -1,12 +1,12 @@
-const path = require( 'path' );
+const path = require('path');
 
-const commonConfig = require( './config.common' );
+const commonConfig = require('./config.common');
 
 const baseConfig = {
 	...commonConfig,
 	entry: './src/index.ts',
 	output: {
-		path: path.resolve( 'dist' ),
+		path: path.resolve('dist'),
 	},
 };
 
@@ -72,4 +72,4 @@ const styleConfig = {
 	},
 };
 
-module.exports = [ cjsConfig, esmConfig, mjsConfig, umdConfig, styleConfig ];
+module.exports = [cjsConfig, esmConfig, mjsConfig, umdConfig, styleConfig];

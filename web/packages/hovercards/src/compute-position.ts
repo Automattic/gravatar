@@ -12,11 +12,11 @@ export type Placement =
 	| 'right-start'
 	| 'right-end';
 
-type Options = Partial< {
+type Options = Partial<{
 	placement: Placement;
 	offset: number;
 	autoFlip: boolean;
-} >;
+}>;
 
 interface ReturnValues {
 	x: number;
@@ -25,7 +25,7 @@ interface ReturnValues {
 	paddingValue: number;
 }
 
-const paddingMap: Record< string, ReturnValues[ 'padding' ] > = {
+const paddingMap: Record<string, ReturnValues['padding']> = {
 	top: 'paddingBottom',
 	bottom: 'paddingTop',
 	left: 'paddingRight',
@@ -53,12 +53,12 @@ export default function computingPosition(
 	const refScrollL = refRect.left + scrollX;
 	let x = 0;
 	let y = 0;
-	let [ dir, align ] = placement.split( '-' );
-	offset = Math.max( 0, offset );
+	let [dir, align] = placement.split('-');
+	offset = Math.max(0, offset);
 
 	// Auto flip the card if there's not enough space
 	// If both sides have not enough space, then the card will be placed on the side with more space
-	if ( autoFlip ) {
+	if (autoFlip) {
 		const topSpace = refRect.top;
 		const bottomSpace = innerHeight - refRect.bottom;
 		const leftSpace = refRect.left;
@@ -66,34 +66,34 @@ export default function computingPosition(
 		const floatingSpaceV = cardRect.height + offset;
 		const floatingSpaceH = cardRect.width + offset;
 
-		if ( dir === 'top' && topSpace < floatingSpaceV && bottomSpace > topSpace ) {
+		if (dir === 'top' && topSpace < floatingSpaceV && bottomSpace > topSpace) {
 			dir = 'bottom';
 		}
 
-		if ( dir === 'bottom' && bottomSpace < floatingSpaceV && topSpace > bottomSpace ) {
+		if (dir === 'bottom' && bottomSpace < floatingSpaceV && topSpace > bottomSpace) {
 			dir = 'top';
 		}
 
-		if ( dir === 'left' && leftSpace < floatingSpaceH && rightSpace > leftSpace ) {
+		if (dir === 'left' && leftSpace < floatingSpaceH && rightSpace > leftSpace) {
 			dir = 'right';
 		}
 
-		if ( dir === 'right' && rightSpace < floatingSpaceH && leftSpace > rightSpace ) {
+		if (dir === 'right' && rightSpace < floatingSpaceH && leftSpace > rightSpace) {
 			dir = 'left';
 		}
 	}
 
 	// Calculate the position of the card
-	if ( dir === 'top' || dir === 'bottom' ) {
+	if (dir === 'top' || dir === 'bottom') {
 		x = refScrollL + refRect.width / 2 - cardRect.width / 2;
 		// The bottom offset will be filled with the card's padding
 		y = dir === 'top' ? refScrollT - cardRect.height - offset : refScrollB;
 
-		if ( align === 'start' ) {
+		if (align === 'start') {
 			x = refScrollL;
 		}
 
-		if ( align === 'end' ) {
+		if (align === 'end') {
 			x = refScrollR - cardRect.width;
 		}
 	} else {
@@ -101,14 +101,14 @@ export default function computingPosition(
 		x = dir === 'right' ? refScrollR : refScrollL - cardRect.width - offset;
 		y = refScrollT + refRect.height / 2 - cardRect.height / 2;
 
-		if ( align === 'start' ) {
+		if (align === 'start') {
 			y = refScrollT;
 		}
 
-		if ( align === 'end' ) {
+		if (align === 'end') {
 			y = refScrollB - cardRect.height;
 		}
 	}
 
-	return { x, y, padding: paddingMap[ dir ], paddingValue: offset };
+	return { x, y, padding: paddingMap[dir], paddingValue: offset };
 }
