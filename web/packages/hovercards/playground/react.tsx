@@ -15,19 +15,19 @@ const props: HovercardsProps = {
 
 function App() {
 	// eslint-disable-next-line no-console
-	const { attach } = useHovercards( { onFetchProfileSuccess: ( hash ) => console.log( hash ) } );
-	const containerRef = useRef( null );
+	const { attach } = useHovercards({ onFetchProfileSuccess: (hash) => console.log(hash) });
+	const containerRef = useRef(null);
 
-	useEffect( () => {
-		if ( containerRef.current ) {
-			attach( containerRef.current );
+	useEffect(() => {
+		if (containerRef.current) {
+			attach(containerRef.current);
 		}
-	}, [ attach ] );
+	}, [attach]);
 
 	return (
-		<div style={ { display: 'flex', flexDirection: 'column', gap: '5rem' } }>
+		<div style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}>
 			<div>
-				<div ref={ containerRef } style={ { display: 'flex', flexDirection: 'column', gap: '5rem' } }>
+				<div ref={containerRef} style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}>
 					<img
 						src="https://www.gravatar.com/avatar/33252cd1f33526af53580fcb1736172f06e6716f32afdd1be19ec3096d15dea5?s=60&d=retro&r=g"
 						width="60"
@@ -42,7 +42,7 @@ function App() {
 					/>
 				</div>
 			</div>
-			<Hovercards style={ { display: 'flex', flexDirection: 'column', gap: '5rem' } } { ...props }>
+			<Hovercards style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }} {...props}>
 				<img
 					src="https://www.gravatar.com/avatar/33252cd1f33526af53580fcb1736172f06e6716f32afdd1be19ec3096d15dea5?s=60&d=retro&r=g"
 					width="60"
@@ -66,5 +66,5 @@ function App() {
 	);
 }
 
-const root = createRoot( document.getElementById( 'react-app' )! );
-root.render( <App /> );
+const root = createRoot(document.getElementById('react-app')!);
+root.render(<App />);

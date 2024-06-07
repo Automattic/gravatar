@@ -6,16 +6,16 @@ import useLatest from './use-latest';
 import useHovercards from './use-hovercards';
 
 export type HovercardsProps = Options &
-	Partial< {
+	Partial<{
 		children: ReactNode;
 		attach: HTMLElement;
 		dataAttributeName: string;
 		ignoreSelector: string;
 		className: string;
 		style: CSSProperties;
-	} >;
+	}>;
 
-export default function Hovercards( {
+export default function Hovercards({
 	children,
 	attach,
 	dataAttributeName,
@@ -23,26 +23,26 @@ export default function Hovercards( {
 	className,
 	style,
 	...options
-}: HovercardsProps = {} ) {
-	const { attach: attachTo } = useHovercards( options );
-	const containerRef = useRef( null );
-	const attachRef = useLatest( attach );
+}: HovercardsProps = {}) {
+	const { attach: attachTo } = useHovercards(options);
+	const containerRef = useRef(null);
+	const attachRef = useLatest(attach);
 
-	useEffect( () => {
+	useEffect(() => {
 		const target = attachRef.current || containerRef.current;
 
-		if ( target ) {
-			attachTo( target, { dataAttributeName, ignoreSelector } );
+		if (target) {
+			attachTo(target, { dataAttributeName, ignoreSelector });
 		}
-	}, [ attachTo, attachRef, dataAttributeName, ignoreSelector ] );
+	}, [attachTo, attachRef, dataAttributeName, ignoreSelector]);
 
-	if ( attach || ! children ) {
+	if (attach || !children) {
 		return null;
 	}
 
 	return (
-		<div ref={ containerRef } className={ className } style={ style }>
-			{ children }
+		<div ref={containerRef} className={className} style={style}>
+			{children}
 		</div>
 	);
 }

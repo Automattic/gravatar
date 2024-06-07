@@ -8,8 +8,8 @@ import { MutableRefObject, useRef } from 'react';
  * @return {MutableRefObject<T>} Mutable reference object initialized to `val`.
  * @internal
  */
-export default < T >( val: T ): MutableRefObject< T > => {
-	const ref = useRef( val );
+export default <T>(val: T): MutableRefObject<T> => {
+	const ref = useRef(val);
 	ref.current = val;
 	return ref;
 };

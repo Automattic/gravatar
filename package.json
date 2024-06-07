@@ -1,10 +1,12 @@
 {
   "name": "gravatar-monorepo",
-  "author": "Automattic Inc.",
   "description": "Welcome to the parent repo for all things Gravatar!",
-  "scripts": {
-    "prepare": "husky"
-  },
+  "author": "Automattic Inc.",
+  "license": "GPL-2.0-or-later",
+  "private": true,
+  "workspaces": [
+    "web/packages/*"
+  ],
   "keywords": [
     "gravatar",
     "profile",
@@ -12,7 +14,12 @@
     "ios sdk",
     "android sdk"
   ],
-  "license": "GPL-2.0-or-later",
+  "engines": {
+		"node": ">=20"
+	},
+  "scripts": {
+    "prepare": "husky"
+  },
   "devDependencies": {
     "husky": "^9.0.11"
   }

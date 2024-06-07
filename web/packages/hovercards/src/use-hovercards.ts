@@ -10,7 +10,7 @@ export interface UseHovercardsReturnValues {
 	createHovercard: CreateHovercard;
 }
 
-export default function useHovercards( {
+export default function useHovercards({
 	placement,
 	offset,
 	autoFlip,
@@ -25,19 +25,19 @@ export default function useHovercards( {
 	onFetchProfileFailure,
 	onHovercardShown,
 	onHovercardHidden,
-}: Options = {} ): UseHovercardsReturnValues {
+}: Options = {}): UseHovercardsReturnValues {
 	// These callbacks / variables won't trigger hooks update and will always be the latest
-	const onQueryHovercardRefRef = useLatest( onQueryHovercardRef );
-	const onFetchProfileStartRef = useLatest( onFetchProfileStart );
-	const onFetchProfileSuccessRef = useLatest( onFetchProfileSuccess );
-	const onFetchProfileFailureRef = useLatest( onFetchProfileFailure );
-	const onHovercardShownRef = useLatest( onHovercardShown );
-	const onHovercardHiddenRef = useLatest( onHovercardHidden );
-	const i18nRef = useLatest( i18n );
+	const onQueryHovercardRefRef = useLatest(onQueryHovercardRef);
+	const onFetchProfileStartRef = useLatest(onFetchProfileStart);
+	const onFetchProfileSuccessRef = useLatest(onFetchProfileSuccess);
+	const onFetchProfileFailureRef = useLatest(onFetchProfileFailure);
+	const onHovercardShownRef = useLatest(onHovercardShown);
+	const onHovercardHiddenRef = useLatest(onHovercardHidden);
+	const i18nRef = useLatest(i18n);
 	// Instantiate the Hovercards class only when the options change
 	const { attach, detach } = useMemo(
 		() =>
-			new Hovercards( {
+			new Hovercards({
 				placement,
 				offset,
 				autoFlip,
@@ -52,7 +52,7 @@ export default function useHovercards( {
 				onFetchProfileFailure: onFetchProfileFailureRef.current,
 				onHovercardShown: onHovercardShownRef.current,
 				onHovercardHidden: onHovercardHiddenRef.current,
-			} ),
+			}),
 		[
 			placement,
 			offset,
@@ -71,9 +71,9 @@ export default function useHovercards( {
 		]
 	);
 
-	useEffect( () => {
+	useEffect(() => {
 		return detach;
-	}, [ detach ] );
+	}, [detach]);
 
 	return { attach, detach, createHovercard: Hovercards.createHovercard };
 }

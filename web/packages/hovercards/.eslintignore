@@ -1,6 +1,2 @@
 dist
 release
-
-# Yarn
-.pnp.*
-.yarn/*

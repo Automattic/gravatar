@@ -1,8 +1,8 @@
 # Gravatar Hovercards
 
 [![npm](https://img.shields.io/npm/v/@gravatar-com/hovercards)](https://npm.im/@gravatar-com/hovercards)
-[![build](https://img.shields.io/github/actions/workflow/status/gravatar/hovercards/hovercards-build-test.yml)](https://github.com/Automattic/gravatar/actions/workflows/hovercards-build-test.yml)
-[![release](https://img.shields.io/github/actions/workflow/status/gravatar/hovercards/hovercards-release.yml?label=release)](https://github.com/Automattic/gravatar/actions/workflows/hovercards-release.yml)
+[![build](https://img.shields.io/github/actions/workflow/status/Automattic/gravatar/hovercards-build-test.yml)](https://github.com/Automattic/gravatar/actions/workflows/hovercards-build-test.yml)
+[![release](https://img.shields.io/github/actions/workflow/status/Automattic/gravatar/hovercards-release.yml?label=release)](https://github.com/Automattic/gravatar/actions/workflows/hovercards-release.yml)
 [![package size](https://img.shields.io/bundlephobia/minzip/@gravatar-com/hovercards?label=minzipped%20size)](https://bundlephobia.com/package/@gravatar-com/hovercards)
 [![downloads](https://img.shields.io/npm/dm/@gravatar-com/hovercards)](https://npmtrends.com/@gravatar-com/hovercards)
 [![downloads](https://img.shields.io/npm/dt/@gravatar-com/hovercards)](https://npmtrends.com/@gravatar-com/hovercards)
@@ -28,24 +28,24 @@ Gravatar Hovercards is an easy-to-use library that brings [Gravatar](https://gra
 
 This Gravatar Hovercards library supports both Vanilla JavaScript (including [TypeScript](https://www.typescriptlang.org/)) and [React](https://react.dev/). Install it via [Yarn](https://yarnpkg.com/), [NPM](https://www.npmjs.com/), or directly include it via [UNPKG](https://unpkg.com/) CDN.
 
-### Install with Yarn or NPM
+### Install with NPM or Yarn
 
 Add the package to your project:
-
-```bash
-yarn add @gravatar-com/hovercards
-```
-
-or
 
 ```bash
 npm install @gravatar-com/hovercards
 ```
 
+or
+
+```bash
+yarn add @gravatar-com/hovercards
+```
+
 For React, also add `react` and `react-dom` (`v16.8.0` or above):
 
 ```bash
-yarn add react react-dom @gravatar-com/hovercards
+npm install add react react-dom @gravatar-com/hovercards
 ```
 
 ### Install with UNPKG
@@ -461,7 +461,7 @@ This library is written in TypeScript and comes with type definitions. You can c
 
 ## Translations
 
-A few items of text are used when displaying a hovercard. The library contains English by default, but you can supply your own translations through the use of the [`i18n`](#i18n-record-string-string) option.
+A few items of text are used when displaying a hovercard. The library contains English by default, but you can supply your own translations through the use of the [`i18n`](#i18n-record-string-string-) option.
 
 The following phrases are used:
 

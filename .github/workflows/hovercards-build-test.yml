@@ -8,9 +8,6 @@ on:
 jobs:
   build: 
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: web/packages/hovercards
     strategy:
       matrix:
         node-version: [20]
@@ -23,20 +20,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: Install dependencies
-        working-directory: web/packages/hovercards
-        run: yarn
+        run: npm install
 
       - name: Type check
         working-directory: web/packages/hovercards
-        run: yarn type-check
+        run: npm run type-check
 
       - name: Lint
         working-directory: web/packages/hovercards
-        run: yarn lint
+        run: npm run lint
 
       - name: Build
         working-directory: web/packages/hovercards
-        run: yarn build
+        run: npm run build
