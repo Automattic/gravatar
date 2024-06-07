@@ -15,12 +15,14 @@
     "android sdk"
   ],
   "engines": {
-		"node": ">=20"
-	},
+    "node": ">=20"
+  },
   "scripts": {
     "prepare": "husky"
   },
   "devDependencies": {
+    "@wordpress/eslint-plugin": "^19.0.0",
+    "@wordpress/scripts": "^28.0.0",
     "husky": "^9.0.11"
   }
 }
