@@ -22,4 +22,4 @@ Together, we are building the open web. Your contributions and feedback are vita
 - **Discuss**: Join discussions in our [GitHub Community](https://github.com/Automattic/gravatar/discussions) and share your ideas and experiences.
 - **Learn**: Check out our [Documentation](https://docs.gravatar.com/getting-started/) for detailed guides and API references.
 
-We are excited to see what you build with Gravatar. Let’s make the web more personalized and connected!
+We are excited to see what you build with Gravatar. Let’s make the web more personalized and connected!!
