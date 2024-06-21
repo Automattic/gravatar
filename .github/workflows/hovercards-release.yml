@@ -35,13 +35,11 @@ jobs:
         run: npm install
 
       - name: Initialize Git user
-        working-directory: web/packages/hovercards
         run: |
           git config user.name "gravatar-automattic"
           git config user.email "gravatar@automattic.com"
 
       - name: Initialize the NPM config
-        working-directory: web/packages/hovercards
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
