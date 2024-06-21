@@ -468,7 +468,6 @@ The following phrases are used:
 - `Edit your profile`
 - `View profile`
 - `Sorry, we are unable to load this Gravatar profile.`
-- `Sorry, we are unable to load this Gravatar profile. Please check your internet connection.`
 - `Too Many Requests.`
 - `Internal Server Error.`
 

@@ -384,14 +384,7 @@ export default class Hovercards {
 						this._onFetchProfileSuccess(hash, this._cachedProfiles.get(hash));
 					})
 					.catch((code) => {
-						let message = __(
-							this._i18n,
-							'Sorry, we are unable to load this Gravatar profile. Please check your internet connection.'
-						);
-
-						if (code === 404) {
-							message = __(this._i18n, 'Sorry, we are unable to load this Gravatar profile.');
-						}
+						let message = __(this._i18n, 'Sorry, we are unable to load this Gravatar profile.');
 
 						if (code === 429) {
 							message = __(this._i18n, 'Too Many Requests.');
