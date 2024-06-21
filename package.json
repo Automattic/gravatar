@@ -22,7 +22,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@release-it/bumper": "^6.0.1",
+    "@release-it-plugins/workspaces": "^4.2.0",
     "@wordpress/eslint-plugin": "^19.0.0",
     "@wordpress/scripts": "^28.0.0",
     "husky": "^9.0.11",

@@ -1,5 +1,8 @@
 {
     "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
+    "plugins": {
+        "@release-it-plugins/workspaces": true
+    },
     "git": {
         "requireCleanWorkingDir": false,
         "commitMessage": "chore: release ${name} v${version}",
@@ -9,9 +12,7 @@
 		"release": true,
         "assets": ["web/packages/*/release/*.zip"]
 	},
-    "npm": {
-        "publish": false
-    },
+    "npm": false,
     "hooks": {
 		"before:init": [
             "git pull",
