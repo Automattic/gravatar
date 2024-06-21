@@ -15,13 +15,7 @@
     "hooks": {
 		"before:init": [
             "git pull",
-            "cd web/packages/${name}",
-            "npm install",
-            "npm run build",
-            "npm run clean:release",
-            "mkdir -p release/${name}",
-            "cp -r dist/* release/${name}",
-            "(cd release; zip -r ${name}.zip ${name}/*)"
+            "for d in web/packages/*; do (cd \"$d\" && npm install && npm run build && npm run clean:release && mkdir -p release && cp -r dist/* release/ && cd release && zip -r $(basename \"$d\").zip ./*); done"
 		],
 		"after:bump": "npx auto-changelog -p",
 		"after:release": "echo 🎉 Successfully released ${name} v${version} to ${repo.repository}."
