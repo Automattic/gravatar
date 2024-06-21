@@ -1,7 +1,7 @@
 {
+	"$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
 	"git": {
-		"requireBranch": "trunk",
-		"commitMessage": "chore: release v${version}",
+		"commitMessage": "chore: release ${name} v${version}",
 		"changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs"
 	},
 	"github": {
@@ -11,13 +11,11 @@
 	"npm": {
 		"publish": true
 	},
-	"publishConfig": {
-		"registry": "https://registry.npmjs.org"
-	},
 	"hooks": {
 		"before:init": [
 			"git pull",
 			"cd web/packages/hovercards",
+			"npm install",
 			"npm run build",
 			"npm run clean:release",
 			"mkdir -p release/hovercards",

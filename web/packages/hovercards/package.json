@@ -86,7 +86,7 @@
 		"postcss-loader": "^7.3.3",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"release-it": "^16.1.4",
+		"release-it": "^17.4.0",
 		"rimraf": "^5.0.1",
 		"sass": "^1.65.1",
 		"sass-loader": "^13.3.2",
