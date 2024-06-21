@@ -65,4 +65,4 @@ This project utilizes [release-it](https://github.com/release-it/release-it) for
     - Click on the `Run workflow` button
     - Choose the appropriate `Version type` (we use [Semantic Versioning](https://semver.org/))
     - Confirm by clicking on `Run workflow` again
-- Local Release (with the push permission): Run `npm run release` and follow the instructions.
+- Local Release (with the push permission): Navigate to the `web/packages/hovercards` folder, run `npm run release`, and follow the instructions.
