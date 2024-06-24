@@ -14,7 +14,6 @@
 	"hooks": {
 		"before:init": [
 			"git pull",
-			"cd web/packages/hovercards",
 			"npm install",
 			"npm run build",
 			"npm run clean:release",
