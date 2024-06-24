@@ -6,7 +6,7 @@
 	},
 	"github": {
 		"release": true,
-		"assets": ["web/packages/hovercards/release/hovercards.zip"]
+		"assets": ["release/hovercards.zip"]
 	},
 	"npm": {
 		"publish": true
@@ -14,7 +14,6 @@
 	"hooks": {
 		"before:init": [
 			"git pull",
-			"npm install",
 			"npm run build",
 			"npm run clean:release",
 			"mkdir -p release/hovercards",
