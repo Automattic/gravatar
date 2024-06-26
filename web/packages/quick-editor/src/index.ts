@@ -32,6 +32,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			const avatarURL = new URL( avatarElement.src );
 			avatarURL.searchParams.set( 't', new Date().getTime().toString() );
 
+			//To give it some time for the cache to be cleaned
 			setTimeout( () => {
 				avatarElement.src = avatarURL.toString();
 			}, 1000 );
@@ -47,7 +48,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		const top = window.screenTop + ( window.outerHeight - height ) / 2;
 
 		window.open(
-			`https://gravatar.com/profile?email=${ email }&scope=${ scope }`,
+			`https://gravatar.com/profile?email=${ email }&scope=${ scope }&is_quick_editor`,
 			'Gravatar',
 			`popup,width=${ width },height=${ height },top=${ top },left=${ left }`,
 		);
