@@ -19,8 +19,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	} );
 
 	window.addEventListener( 'message', ( event ) => {
-		//TODO: Handle localized origin
-		if ( event.origin !== 'https://gravatar.com' ) {
+		if ( ! event.origin.match( /https:\/\/([a-z]{2,3}\.)?gravatar.com/ ) ) {
 			return;
 		}
 
@@ -36,8 +35,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			setTimeout( () => {
 				avatarElement.src = avatarURL.toString();
 			}, 1000 );
-		} else if ( event.data?.type === 'profile_updated') {
-			window.dispatchEvent( new CustomEvent( 'GravatarProfileUpdated', { detail: event.data?.body } ) );
 		}
 	} );
 
