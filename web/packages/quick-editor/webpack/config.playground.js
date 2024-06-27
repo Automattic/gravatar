@@ -4,11 +4,10 @@ const commonConfig = require( './config.common' );
 
 module.exports = {
 	...commonConfig,
-	mode: "development",
-	entry: './src/index.ts',
+	entry: './playground/index.ts',
 	devServer: {
 		open: true,
-		static: './playground/index.html',
+		watchFiles: [ 'playground' ],
 	},
 	plugins: [
 		...commonConfig.plugins,

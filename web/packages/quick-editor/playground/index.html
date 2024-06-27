@@ -5,33 +5,31 @@
 	<title>Gravatar Quick Editor Playground</title>
 </head>
 <style>
-	.gravatar-quick-editor {
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap:16px
-	}
+    .gravatar-quick-editor {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px
+    }
+
+    #button {
+        padding: 8px 20px;
+    }
 </style>
 <body>
-	<div class="gravatar-quick-editor">
-		<img
-			alt="Avatar"
+<div class="gravatar-quick-editor">
+	<img
+			class="avatar"
+			alt="Avatar 1"
 			src="https://1.gravatar.com/avatar/4f615f4811330c1883eb440d6621e7c2bb8e4bbb610f74e1159d2973a0aea99f?size=256"
-			data-gravatar-avatar
-		/>
-		<button
-			data-gravatar-email="joao.heringer@automattic.com"
-			data-gravatar-scope="avatars,about"
-		>
-			Edit Avatar
-		</button>
-	</div>
-	<script type="text/javascript">
-		window.addEventListener( 'GravatarProfileUpdated', ( event ) => {
-			alert( 'Profile Updated' );
-			console.log( event.detail );
-		} )
-	</script>
+	/>
+	<img
+			class="avatar"
+			alt="Avatar 2"
+			src="https://1.gravatar.com/avatar/4f615f4811330c1883eb440d6621e7c2bb8e4bbb610f74e1159d2973a0aea99f?size=256"
+	/>
+	<button id="button">Edit Avatar</button>
+</div>
 </body>
 </html>
