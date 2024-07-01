@@ -1,0 +1,28 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
+		"jsx": "react-jsx",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"noImplicitAny": true,
+		"module": "ESNext",
+		"target": "ES2020",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"skipLibCheck": true,
+		"stripInternal": true,
+		"outDir": "dist"
+	},
+	"include": [
+		"src"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}

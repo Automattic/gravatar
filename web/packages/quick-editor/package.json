@@ -1,0 +1,55 @@
+{
+	"name": "@gravatar-com/quick-editor",
+	"version": "0.0.0",
+	"description": "A lightweight library to provide seamless Gravatar profile management for third-party sites",
+	"author": "Automattic Inc.",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"gravatar",
+		"profile",
+		"gravatar-profile",
+		"gravatar-editor",
+		"typescript"
+	],
+	"types": "dist/index.d.ts",
+	"main": "dist/index.js",
+	"module": "dist/index.esm.js",
+	"unpkg": "dist/index.umd.js",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"start": "npm run build && webpack serve --config ./webpack/config.playground.js",
+		"build": "npm run clean:dist && run-p 'build:types' 'build:core'",
+		"build:core": "webpack --config ./webpack/config.core.js --node-env=production",
+		"build:types": "tsc --declaration --declarationMap --emitDeclarationOnly",
+		"build:dev": "npm run clean:dist && run-p 'build:types' 'build:core --node-env=development'",
+		"build:watch": "npm run build:dev && watch 'npm run build:dev' ./src",
+		"clean:dist": "rimraf dist"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.24.5",
+		"@babel/preset-env": "^7.24.5",
+		"@babel/preset-react": "^7.24.1",
+		"@babel/preset-typescript": "^7.24.7",
+		"@wordpress/prettier-config": "^4.1.0",
+		"babel-loader": "^9.1.3",
+		"html-webpack-plugin": "^5.5.3",
+		"rimraf": "^5.0.1",
+		"terser-webpack-plugin": "^5.3.9",
+		"typescript": "^5.1.6",
+		"watch": "^1.0.2",
+		"webpack": "^5.91.0",
+		"webpack-cli": "^5.1.4",
+		"webpack-dev-server": "^4.15.1",
+		"webpack-remove-empty-scripts": "^1.0.3"
+	},
+	"engines": {
+		"node": ">=20"
+	}
+}

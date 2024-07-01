@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Gravatar Quick Editor Playground</title>
+</head>
+<style>
+    .content {
+        display: flex;
+        gap: 80px;
+        justify-content: center;
+    }
+
+    .gravatar-quick-editor {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px
+    }
+
+    img {
+	    border-radius: 50%;
+    }
+
+    button {
+        padding: 8px 20px;
+    }
+</style>
+<body>
+<div class="content">
+	<div class="gravatar-quick-editor">
+		<h1>Gravatar Quick Editor</h1>
+		<img
+				class="avatar"
+				alt="Avatar"
+				src="https://1.gravatar.com/avatar/4f615f4811330c1883eb440d6621e7c2bb8e4bbb610f74e1159d2973a0aea99f?size=256"
+		/>
+		<button id="edit-avatar">Edit Avatar</button>
+	</div>
+	<div class="gravatar-quick-editor">
+		<h1>Gravatar Quick Editor Core</h1>
+		<img
+				class="avatar-core"
+				alt="Avatar Core"
+				src="https://1.gravatar.com/avatar/4f615f4811330c1883eb440d6621e7c2bb8e4bbb610f74e1159d2973a0aea99f?size=256"
+		/>
+		<button id="edit-avatar-core">Edit Avatar</button>
+	</div>
+</div>
+</body>
+</html>
