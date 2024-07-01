@@ -1,6 +1,6 @@
 {
 	"name": "@gravatar-com/quick-editor",
-	"version": "0.5.0",
+	"version": "0.0.0",
 	"description": "A lightweight library to provide seamless Gravatar profile management for third-party sites",
 	"author": "Automattic Inc.",
 	"license": "GPL-2.0-or-later",

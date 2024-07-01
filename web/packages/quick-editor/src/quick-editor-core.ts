@@ -2,6 +2,8 @@ export type Scope = ( 'about' | 'avatars' | 'verified-accounts' | 'links' | 'int
 
 export type ProfileUpdatedType = 'avatar_updated';
 
+export type Open = ( email?: string ) => void;
+
 export type OnProfileUpdated = ( type: ProfileUpdatedType ) => void;
 
 export type OnOpened = () => void;
@@ -33,7 +35,7 @@ export class GravatarQuickEditorCore {
 		window.addEventListener( 'message', this._onMessage.bind( this ) );
 	}
 
-	open( email?: string ) {
+	open: Open = ( email?: string ) => {
 		email = email || this._email;
 
 		if ( ! email ) {
@@ -69,6 +71,6 @@ export class GravatarQuickEditorCore {
 			return;
 		}
 
-		this._onProfileUpdated( event.data?.type );
+		this._onProfileUpdated( event.data.type );
 	}
 }

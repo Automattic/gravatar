@@ -1,4 +1,4 @@
-import GravatarQuickEditor, { GravatarQuickEditorCore } from '../dist';
+import { GravatarQuickEditor, GravatarQuickEditorCore } from '../dist';
 import type { ProfileUpdatedType } from '../dist';
 
 document.addEventListener( 'DOMContentLoaded', () => {
