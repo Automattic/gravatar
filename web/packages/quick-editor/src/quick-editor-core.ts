@@ -1,4 +1,17 @@
-export type Scope = ( 'about' | 'avatars' | 'verified-accounts' | 'links' | 'interests' | 'contact-info' | 'wallet' | 'photos' | 'design' | 'privacy' )[];
+const ScopeList = [
+	'about',
+	'avatars',
+	'verified-accounts',
+	'links',
+	'interests',
+	'contact-info',
+	'wallet',
+	'photos',
+	'design',
+	'privacy'
+] as const;
+
+export type Scope = typeof ScopeList[number][];
 
 export type ProfileUpdatedType = 'avatar_updated';
 
@@ -31,6 +44,11 @@ export class GravatarQuickEditorCore {
 		this._local = local;
 		this._onProfileUpdated = onProfileUpdated;
 		this._onOpened = onOpened;
+
+		if ( ! this._scope.every( s => ScopeList.includes( s ) ) ) {
+			console.error( 'Gravatar Quick Editor: Invalid scope definition. Available scope: ' + ScopeList.join( ', ' ) );
+			this._scope = this._scope.filter( s => ScopeList.includes( s ) );
+		}
 
 		window.addEventListener( 'message', this._onMessage.bind( this ) );
 	}
