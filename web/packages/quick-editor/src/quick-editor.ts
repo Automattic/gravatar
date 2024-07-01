@@ -30,7 +30,7 @@ export default class GravatarQuickEditor {
 		}
 
 		this._avatarList.forEach( avatarElement => {
-			if ( ! URL.canParse( avatarElement.src ) ) {
+			if ( ! URL.canParse( avatarElement.src ) || ! avatarElement.src.includes( 'gravatar.com/avatar' ) ) {
 				return;
 			}
 
