@@ -3,7 +3,7 @@ import { GravatarQuickEditorCore, ProfileUpdatedType, Scope } from './quick-edit
 export type QuickEditorOptions = {
 	email: string;
 	editorTriggerSelector: string;
-	avatarSelector: string;
+	avatarSelector?: string;
 	scope?: Scope;
 	local?: string;
 	avatarRefreshDelay?: number;
