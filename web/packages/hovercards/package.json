@@ -4,7 +4,11 @@
 	"description": "Add profile hovercards to Gravatar images.",
 	"homepage": "https://github.com/Automattic/gravatar/blob/trunk/web/packages/hovercards#readme",
 	"bugs": "https://github.com/Automattic/gravatar/issues",
-	"repository": "https://github.com/Automattic/gravatar/blob/trunk/web/packages/hovercards",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Automattic/gravatar.git",
+		"directory": "web/packages/hovercards"
+	},
 	"author": "Automattic Inc.",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
