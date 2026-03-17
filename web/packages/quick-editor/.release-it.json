@@ -13,7 +13,8 @@
 		"assets": [ "release/quick-editor.zip" ]
 	},
 	"npm": {
-		"publish": true
+		"publish": true,
+		"skipChecks": true
 	},
 	"hooks": {
 		"before:init": [

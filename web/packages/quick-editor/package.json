@@ -64,6 +64,11 @@
 	"engines": {
 		"node": ">=20"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Automattic/gravatar.git",
+		"directory": "web/packages/quick-editor"
+	},
 	"publishConfig": {
 		"access": "public"
 	}

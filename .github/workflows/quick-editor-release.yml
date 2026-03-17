@@ -17,8 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      id-token: write # Required for NPM Trusted Publishing (OIDC)
 
-    steps: 
+    steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
@@ -30,23 +31,21 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Upgrade NPM
+        run: npm install -g npm@latest
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Initialize Git user
         run: |
           git config user.name "gravatar-automattic"
           git config user.email "gravatar@automattic.com"
 
-      - name: Initialize the NPM config
-        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Release
         working-directory: web/packages/quick-editor
         run: npx release-it ${{ github.event.inputs.increment }} --ci
-        env: 
+        env:
           GITHUB_TOKEN: ${{ secrets.GRAVATAR_GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
