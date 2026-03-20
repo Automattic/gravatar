@@ -64,6 +64,8 @@
 	"engines": {
 		"node": ">=20"
 	},
+	"homepage": "https://github.com/Automattic/gravatar/blob/trunk/web/packages/quick-editor#readme",
+	"bugs": "https://github.com/Automattic/gravatar/issues",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Automattic/gravatar.git",
