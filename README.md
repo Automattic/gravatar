@@ -1,3 +1,4 @@
+<img width="1024" height="1024" alt="inbound8625063719119394081" src="https://github.com/user-attachments/assets/c5fc0185-accc-4032-a175-3ebd34fa3f44" />
 # Gravatar
 
 Welcome to the parent repo for all things Gravatar! 
