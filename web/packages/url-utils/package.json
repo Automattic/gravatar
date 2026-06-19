@@ -47,7 +47,7 @@
 		"@jest/globals": "^29.7.0",
 		"@types/node": "^22.6.1",
 		"lint-staged": "^15.2.10",
-		"release-it": "^17.4.0",
+		"release-it": "^20.2.0",
 		"rimraf": "^5.0.1",
 		"typescript": "^5.1.6",
 		"webpack": "^5.91.0",
