@@ -1,0 +1,42 @@
+{
+  "name": "ERIFY • Gravatar Dev",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/node:1": { "version": "lts" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        "streetsidesoftware.code-spell-checker"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "eslint.alwaysShowStatus": true,
+        "files.eol": "\n"
+      }
+    }
+  },
+  "containerEnv": {
+    "COREPACK_ENABLE_AUTO_PIN": "1",
+    "PNPM_HOME": "/usr/local/share/pnpm"
+  },
+  "postCreateCommand": "corepack enable && npm -v && pnpm -v || npm i -g pnpm && pnpm install",
+  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+  "updateContentCommand": "pnpm install",
+  "runArgs": ["--init"],
+  "mounts": [
+    "type=volume,source=pnpm-store,target=/root/.local/share/pnpm/store"
+  ],
+  "remoteUser": "node",
+  "forwardPorts": [3000, 5173, 8080],
+  "portsAttributes": {
+    "3000": { "label": "Web app" },
+    "5173": { "label": "Vite" },
+    "8080": { "label": "Dev server" }
+  }
+}
