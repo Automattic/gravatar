@@ -72,7 +72,7 @@
 		"release": "release-it"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.22.10",
+		"@babel/core": "^7.29.6",
 		"@babel/preset-env": "^7.22.10",
 		"@babel/preset-react": "^7.22.5",
 		"@babel/preset-typescript": "^7.22.5",
