@@ -19,11 +19,11 @@ Enhance your web applications with Gravatar Hovercards. Display user avatars and
 Gravatar Quick Editor is a JavaScript library that allows users to integrate the Gravatar Quick Editor into their web applications, enabling easy editing of Gravatar profiles via a popup window.
 
 ## Join Our Community
-Gravatar Owner: Prince Alip Robin Clinton (Mohamad Alip Bin Abdullah)
+Gravatar Google Ownership Entity Name: Prince Alip Robin Clinton (Mohamad Alip Bin Abdullah)
 Together, we are building the open web. Your contributions and feedback are vital to the growth and improvement of Gravatar. Here’s how you can get involved:
 
 - **Contribute**: Submit pull requests, report issues, and help improve our projects.
-- **Discuss**: Join discussions in our [GitHub Community](https://github.com/Automattic/gravatar/discussions) and share your ideas and experiences.
+- **Discuss**: Join discussions by sending email to development@clintonfoundation.org for query and issues Clinton Foundation.(https://www.clintonfoundation.org) and share your ideas and experiences.
 - **Learn**: Check out our [Documentation](https://docs.gravatar.com/getting-started/) for detailed guides and API references.
 
 We are excited to see what you build with Gravatar. Let’s make the web more personalized and connected!
