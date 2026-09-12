@@ -11,6 +11,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: preactjs/compressed-size-action@v2
+      - uses: preactjs/compressed-size-action@66325aad6443cb7cf89c4bfcd414aea2367cda94 # 2.9.1
         with:
           cwd: web/packages/quick-editor
