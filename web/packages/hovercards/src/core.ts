@@ -1,6 +1,6 @@
 import type { Placement } from './assign-position';
 import assignPosition from './assign-position';
-import { escUrl, escHtml, escSafeUrl } from './sanitizer';
+import { escHtml, escSafeUrl, escImgUrl } from './sanitizer';
 import addQueryArg from './add-query-arg';
 import __t from './i18n';
 
@@ -360,7 +360,7 @@ export default class Hovercards {
 
 				links.push( `
 					<a class="gravatar-hovercard__social-link" href="${ safeUrl }" target="_blank" data-service-name="${ escHtml( type ) }">
-						<img class="gravatar-hovercard__social-icon" src="${ escUrl( icon ) }" width="32" height="32" alt="${ escHtml(
+						<img class="gravatar-hovercard__social-icon" src="${ escImgUrl( icon ) }" width="32" height="32" alt="${ escHtml(
 							label
 						) }" />
 					</a>
@@ -376,7 +376,7 @@ export default class Hovercards {
 		let sendMoneyDrawer = '';
 
 		if ( headerImage || ! hideDefaultHeaderImage ) {
-			const img = `<img class="gravatar-hovercard__header-image-img" src="${ escUrl( avatarUrl ) }" alt=""/>`;
+			const img = `<img class="gravatar-hovercard__header-image-img" src="${ escImgUrl( avatarUrl ) }" alt=""/>`;
 			headerImageHtml = `<div class="gravatar-hovercard__header-image">${ ! headerImage ? img : '' }</div>`;
 		}
 
@@ -415,7 +415,9 @@ export default class Hovercards {
 				${ headerImageHtml }
 				<div class="gravatar-hovercard__header">
 					<a class="gravatar-hovercard__avatar-link" href="${ trackedProfileUrl }" target="_blank">
-						<img class="gravatar-hovercard__avatar" src="${ escUrl( avatarUrl ) }" width="104" height="104" alt="${ username }" />
+						<img class="gravatar-hovercard__avatar" src="${ escImgUrl(
+							avatarUrl
+						) }" width="104" height="104" alt="${ username }" />
 					</a>
 					<a class="gravatar-hovercard__personal-info-link" href="${ trackedProfileUrl }" target="_blank">
 						<h4 class="gravatar-hovercard__name">${ username }</h4>
@@ -729,7 +731,7 @@ export default class Hovercards {
 
 		hovercard.innerHTML = `
 			<div class="gravatar-hovercard__inner">
-				<img class="gravatar-hovercard__avatar" src="${ escUrl( avatarUrl ) }" width="104" height="104" alt="${ escHtml(
+				<img class="gravatar-hovercard__avatar" src="${ escImgUrl( avatarUrl ) }" width="104" height="104" alt="${ escHtml(
 					avatarAlt
 				) }" />
 				<div class="gravatar-hovercard__error-message-wrapper">

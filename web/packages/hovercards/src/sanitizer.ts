@@ -14,15 +14,17 @@ export function escHtml( str: string | null | undefined ) {
 	);
 }
 
-export function escUrl( url: string ) {
-	return encodeURI( url );
-}
-
 // Returns an attribute-safe URL, or an empty string if it can't be parsed or its protocol isn't allowed.
-export function escSafeUrl( url: string, allowedProtocols = [ 'http:', 'https:' ] ) {
+// Relative URLs are resolved against `base` when one is given.
+export function escSafeUrl( url: string, allowedProtocols = [ 'http:', 'https:' ], base?: string ) {
 	try {
-		return allowedProtocols.includes( new URL( url ).protocol ) ? escHtml( url ) : '';
+		return allowedProtocols.includes( new URL( url, base ).protocol ) ? escHtml( url ) : '';
 	} catch {
 		return '';
 	}
+}
+
+// Like escSafeUrl(), but for image sources: also allows relative, data: and blob: URLs.
+export function escImgUrl( url: string ) {
+	return escSafeUrl( url, [ 'http:', 'https:', 'data:', 'blob:' ], document.baseURI );
 }
