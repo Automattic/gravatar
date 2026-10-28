@@ -528,6 +528,8 @@ The following phrases are used:
 
 The `i18n` option is an object that maps from the English text to the language of your choice (even another English phrase, if you wish to change the text).
 
+Translations are treated as plain text: any HTML in them is escaped rather than rendered. Pass unescaped strings (for example, WordPress's `__()` rather than `esc_html__()`), or entities such as `&#039;` will be shown literally.
+
 ```js
 {
   'Edit your profile →': 'Modifier votre profil →'

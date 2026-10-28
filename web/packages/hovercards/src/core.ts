@@ -2,7 +2,7 @@ import type { Placement } from './assign-position';
 import assignPosition from './assign-position';
 import { escHtml, escSafeUrl, escImgUrl } from './sanitizer';
 import addQueryArg from './add-query-arg';
-import __t from './i18n';
+import __t, { translate } from './i18n';
 
 interface AccountData {
 	service_type: string;
@@ -260,7 +260,8 @@ export default class Hovercards {
 					params = part.length > 1 ? part[ 1 ] : '';
 				}
 
-				if ( ! hash ) {
+				// "." and ".." would change the API path, even when encoded.
+				if ( ! hash || hash === '.' || hash === '..' ) {
 					return null;
 				}
 
@@ -273,17 +274,17 @@ export default class Hovercards {
 				const txtColor = p.get( 'txt_color' );
 				const bgColor = p.get( 'bg_color' );
 
-				params = [
-					d && `d=${ d }`,
-					f && `f=${ f }`,
-					r && `r=${ r }`,
-					initials && `initials=${ initials }`,
-					name && `name=${ name }`,
-					txtColor && `txt_color=${ txtColor }`,
-					bgColor && `bg_color=${ bgColor }`,
-				]
-					.filter( Boolean )
-					.join( '&' );
+				params = new URLSearchParams(
+					[
+						[ 'd', d ],
+						[ 'f', f ],
+						[ 'r', r ],
+						[ 'initials', initials ],
+						[ 'name', name ],
+						[ 'txt_color', txtColor ],
+						[ 'bg_color', bgColor ],
+					].filter( ( [ , value ] ) => value )
+				).toString();
 
 				return {
 					id: `gravatar-hovercard-${ hash }-${ idx }`,
@@ -359,7 +360,9 @@ export default class Hovercards {
 				}
 
 				links.push( `
-					<a class="gravatar-hovercard__social-link" href="${ safeUrl }" target="_blank" data-service-name="${ escHtml( type ) }">
+					<a class="gravatar-hovercard__social-link" href="${ safeUrl }" target="_blank" rel="noopener noreferrer nofollow" data-service-name="${ escHtml(
+						type
+					) }">
 						<img class="gravatar-hovercard__social-icon" src="${ escImgUrl( icon ) }" width="32" height="32" alt="${ escHtml(
 							label
 						) }" />
@@ -414,12 +417,12 @@ export default class Hovercards {
 			<div class="gravatar-hovercard__inner">
 				${ headerImageHtml }
 				<div class="gravatar-hovercard__header">
-					<a class="gravatar-hovercard__avatar-link" href="${ trackedProfileUrl }" target="_blank">
+					<a class="gravatar-hovercard__avatar-link" href="${ trackedProfileUrl }" target="_blank" rel="noopener">
 						<img class="gravatar-hovercard__avatar" src="${ escImgUrl(
 							avatarUrl
 						) }" width="104" height="104" alt="${ username }" />
 					</a>
-					<a class="gravatar-hovercard__personal-info-link" href="${ trackedProfileUrl }" target="_blank">
+					<a class="gravatar-hovercard__personal-info-link" href="${ trackedProfileUrl }" target="_blank" rel="noopener">
 						<h4 class="gravatar-hovercard__name">${ username }</h4>
 						${ jobInfo ? `<p class="gravatar-hovercard__job">${ escHtml( jobInfo ) }</p>` : '' }
 						${ location ? `<p class="gravatar-hovercard__location">${ escHtml( location ) }</p>` : '' }
@@ -433,7 +436,7 @@ export default class Hovercards {
 						: ''
 				}
 				<div class="gravatar-hovercard__social-links">
-					<a class="gravatar-hovercard__social-link" href="${ trackedProfileUrl }" target="_blank" data-service-name="gravatar">
+					<a class="gravatar-hovercard__social-link" href="${ trackedProfileUrl }" target="_blank" rel="noopener" data-service-name="gravatar">
 						<img class="gravatar-hovercard__social-icon" src="https://s.gravatar.com/icons/gravatar.svg" width="32" height="32" alt="Gravatar" />
 					</a>
 					${ renderSocialLinks }
@@ -442,13 +445,13 @@ export default class Hovercards {
 				<div class="gravatar-hovercard__footer">
 					<a class="gravatar-hovercard__profile-url" title="${ escHtml(
 						profileUrl
-					) }" href="${ trackedProfileUrl }" target="_blank">
+					) }" href="${ trackedProfileUrl }" target="_blank" rel="noopener">
 						${ escHtml( profileUrl.replace( 'https://', '' ) ) }
 					</a>
 					<a
 						class="gravatar-hovercard__profile-link${ isEditProfile ? ' gravatar-hovercard__profile-link--edit' : '' }"
 						href="${ isEditProfile ? 'https://gravatar.com/profiles/edit?utm_source=hovercard' : trackedProfileUrl }"
-						target="_blank"
+						target="_blank" rel="noopener"
 					>
 						${ isEditProfile ? __t( i18n, 'Edit your profile →' ) : __t( i18n, 'View profile →' ) }
 					</a>
@@ -604,13 +607,17 @@ export default class Hovercards {
 			}
 		};
 
+		const hasOwn = ( obj: object, key: string ) => Object.prototype.hasOwnProperty.call( obj, key );
+
 		const items = contactsData.map( ( [ key, value ]: string[] ) => {
 			const url = getUrl( key, value );
+			const icon = hasOwn( icons, key ) ? icons[ key ] : 'icons/link.svg';
+			const label = hasOwn( labels, key ) ? labels[ key ] : escHtml( key.replace( '_', ' ' ) );
 			let text = value.replace( /^(https?:\/\/)?(www\.)?/, '' );
 			text = escHtml( text.endsWith( '/' ) ? text.slice( 0, -1 ) : text );
 
 			if ( url ) {
-				text = `<a class="gravatar-hovercard__drawer-item-link" href="${ url }" target="_blank">${ text }</a>`;
+				text = `<a class="gravatar-hovercard__drawer-item-link" href="${ url }" target="_blank" rel="noopener noreferrer nofollow">${ text }</a>`;
 			}
 
 			return `
@@ -619,11 +626,11 @@ export default class Hovercards {
 						class="gravatar-hovercard__drawer-item-icon"
 						width="24"
 						height="24"
-						src="https://s.gravatar.com/${ icons[ key ] }"
+						src="https://s.gravatar.com/${ icon }"
 						alt=""
 					>
 					<div class="gravatar-hovercard__drawer-item-info">
-						<span class="gravatar-hovercard__drawer-item-label">${ labels[ key ] ?? escHtml( key.replace( '_', ' ' ) ) }</span>
+						<span class="gravatar-hovercard__drawer-item-label">${ label }</span>
 						<span class="gravatar-hovercard__drawer-item-text">${ text }</span>
 					</div>
 				</li>
@@ -644,8 +651,9 @@ export default class Hovercards {
 		const items: string[] = [];
 
 		payments.links?.forEach( ( item ) => {
-			const url = escSafeUrl( item.url );
-			const text = escHtml( String( item.url ?? '' ).replace( /^(https?:\/\/)/, '' ) );
+			const itemUrl = String( item.url ?? '' );
+			const url = escSafeUrl( itemUrl.startsWith( 'http' ) ? itemUrl : `https://${ itemUrl }` );
+			const text = escHtml( itemUrl.replace( /^(https?:\/\/)/, '' ) );
 
 			items.push( `
 				<li class="gravatar-hovercard__drawer-item">
@@ -653,7 +661,11 @@ export default class Hovercards {
 					<div class="gravatar-hovercard__drawer-item-info">
 						<span class="gravatar-hovercard__drawer-item-label">${ escHtml( item.label ) }</span>
 						<span class="gravatar-hovercard__drawer-item-text">
-							${ url ? `<a class="gravatar-hovercard__drawer-item-link" href="${ url }" target="_blank">${ text }</a>` : text }
+							${
+								url
+									? `<a class="gravatar-hovercard__drawer-item-link" href="${ url }" target="_blank" rel="noopener noreferrer nofollow">${ text }</a>`
+									: text
+							}
 						</span>
 					</div>
 				</li>
@@ -794,7 +806,7 @@ export default class Hovercards {
 
 				this._onFetchProfileStart( hash );
 
-				fetch( addQueryArg( `${ BASE_API_URL }/${ hash }`, 'source', 'hovercard' ) )
+				fetch( addQueryArg( `${ BASE_API_URL }/${ encodeURIComponent( hash ) }`, 'source', 'hovercard' ) )
 					.then( ( res ) => {
 						// API error handling
 						if ( res.status !== 200 ) {
@@ -847,20 +859,20 @@ export default class Hovercards {
 						this._onHovercardShown( hash, hovercard );
 					} )
 					.catch( ( code ) => {
-						let message = __t( this._i18n, 'Sorry, we are unable to load this Gravatar profile.' );
+						let message = translate( this._i18n, 'Sorry, we are unable to load this Gravatar profile.' );
 
 						switch ( code ) {
 							case 403:
-								message = __t( this._i18n, 'This profile is private.' );
+								message = translate( this._i18n, 'This profile is private.' );
 								break;
 							case 404:
-								message = __t( this._i18n, 'Gravatar not found.' );
+								message = translate( this._i18n, 'Gravatar not found.' );
 								break;
 							case 429:
-								message = __t( this._i18n, 'Too Many Requests.' );
+								message = translate( this._i18n, 'Too Many Requests.' );
 								break;
 							case 500:
-								message = __t( this._i18n, 'Internal Server Error.' );
+								message = translate( this._i18n, 'Internal Server Error.' );
 								break;
 						}
 
@@ -869,7 +881,7 @@ export default class Hovercards {
 								? `
 								<i class="gravatar-hovercard__error-message gravatar-hovercard__error-message--claim-gravatar">
 									${ __t( this._i18n, 'Is this you?' ) } 
-									<a href="https://gravatar.com/signup?utm_source=hovercard" target="_blank">
+									<a href="https://gravatar.com/signup?utm_source=hovercard" target="_blank" rel="noopener">
 										${ __t( this._i18n, 'Claim your free profile.' ) }
 									</a>
 								</i>
@@ -877,7 +889,7 @@ export default class Hovercards {
 								: '';
 
 						const hovercardInner = Hovercards.createHovercardError(
-							`https://0.gravatar.com/avatar/${ hash }${ params }`,
+							`https://0.gravatar.com/avatar/${ encodeURIComponent( hash ) }${ params }`,
 							message,
 							{ additionalClass: this._additionalClass, additionalMessage }
 						).firstElementChild;
