@@ -33,7 +33,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Upgrade NPM
-        run: npm install -g npm@latest
+        run: npm install -g npm@11 # npm 12 requires Node 22+; Trusted Publishing requires npm 11.5.1+
 
       - name: Install dependencies
         run: npm ci
