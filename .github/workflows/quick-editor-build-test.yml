@@ -4,13 +4,14 @@ on:
   pull_request:
     paths:
       - 'web/packages/quick-editor/**'
+      - '.github/workflows/quick-editor-build-test.yml'
 
 jobs:
   build: 
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20]
+        node-version: [24]
 
     steps:
       - name: Checkout repo
