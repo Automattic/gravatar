@@ -142,6 +142,9 @@ const BASE_API_URL = 'https://api.gravatar.com/v3/profiles';
 
 const dc = document;
 
+// Adds https:// to URLs that don't have a scheme.
+const withScheme = ( url: string ) => ( /^[a-z][a-z\d+.-]*:\/\//i.test( url ) ? url : `https://${ url }` );
+
 export default class Hovercards {
 	// Options
 	_placement: Placement;
@@ -601,7 +604,7 @@ export default class Hovercards {
 				case 'contact_form':
 				case 'calendar':
 				case 'calendly':
-					return escSafeUrl( value.startsWith( 'http' ) ? value : `https://${ value }` );
+					return escSafeUrl( withScheme( value ) );
 				default:
 					return null;
 			}
@@ -613,7 +616,7 @@ export default class Hovercards {
 			const url = getUrl( key, value );
 			const icon = hasOwn( icons, key ) ? icons[ key ] : 'icons/link.svg';
 			const label = hasOwn( labels, key ) ? labels[ key ] : escHtml( key.replace( '_', ' ' ) );
-			let text = value.replace( /^(https?:\/\/)?(www\.)?/, '' );
+			let text = value.replace( /^(https?:\/\/)?(www\.)?/i, '' );
 			text = escHtml( text.endsWith( '/' ) ? text.slice( 0, -1 ) : text );
 
 			if ( url ) {
@@ -652,8 +655,8 @@ export default class Hovercards {
 
 		payments.links?.forEach( ( item ) => {
 			const itemUrl = String( item.url ?? '' );
-			const url = escSafeUrl( /^https?:/i.test( itemUrl ) ? itemUrl : `https://${ itemUrl }` );
-			const text = escHtml( itemUrl.replace( /^(https?:\/\/)/, '' ) );
+			const url = escSafeUrl( withScheme( itemUrl ) );
+			const text = escHtml( itemUrl.replace( /^(https?:\/\/)/i, '' ) );
 
 			items.push( `
 				<li class="gravatar-hovercard__drawer-item">
