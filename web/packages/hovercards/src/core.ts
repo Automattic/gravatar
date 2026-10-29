@@ -652,7 +652,7 @@ export default class Hovercards {
 
 		payments.links?.forEach( ( item ) => {
 			const itemUrl = String( item.url ?? '' );
-			const url = escSafeUrl( itemUrl.startsWith( 'http' ) ? itemUrl : `https://${ itemUrl }` );
+			const url = escSafeUrl( /^https?:/i.test( itemUrl ) ? itemUrl : `https://${ itemUrl }` );
 			const text = escHtml( itemUrl.replace( /^(https?:\/\/)/, '' ) );
 
 			items.push( `
