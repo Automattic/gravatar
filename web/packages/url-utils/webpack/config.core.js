@@ -1,4 +1,5 @@
 const path = require( 'path' );
+const { BannerPlugin } = require( 'webpack' );
 const commonConfig = require( './config.common' );
 
 const baseConfig = {
@@ -63,4 +64,29 @@ const umdConfig = {
 	},
 };
 
-module.exports = [ cjsConfig, esmConfig, mjsConfig, umdConfig ];
+const cliConfig = {
+	...commonConfig,
+	entry: './src/cli.ts',
+	output: {
+		path: path.resolve( 'dist' ),
+		filename: 'cli.js',
+		library: {
+			type: 'commonjs2',
+		},
+	},
+	target: 'node',
+	optimization: {
+		...commonConfig.optimization,
+		minimize: false,
+	},
+	plugins: [
+		...commonConfig.plugins,
+		new BannerPlugin( {
+			banner: '#!/usr/bin/env node',
+			raw: true,
+			entryOnly: true,
+		} ),
+	],
+};
+
+module.exports = [ cjsConfig, esmConfig, mjsConfig, umdConfig, cliConfig ];

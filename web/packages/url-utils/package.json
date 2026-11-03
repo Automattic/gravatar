@@ -28,7 +28,7 @@
 		"type-check": "tsc --noEmit",
 		"build": "npm run clean:dist && run-p 'build:types' 'build:core'",
 		"build:core": "webpack --config ./webpack/config.core.js --node-env=production",
-		"build:types": "tsc --declaration --declarationMap --emitDeclarationOnly",
+		"build:types": "tsc -p tsconfig.build.json --declaration --declarationMap --emitDeclarationOnly",
 		"build:dev": "npm run clean:dist && run-p 'build:types' 'build:core --node-env=development'",
 		"build:watch": "npm run build:dev && watch 'npm run build:dev' ./src",
 		"clean:dist": "rimraf dist",
