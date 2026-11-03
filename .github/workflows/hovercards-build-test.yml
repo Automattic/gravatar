@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'web/packages/hovercards/**'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/hovercards-build-test.yml'
 
 jobs:
