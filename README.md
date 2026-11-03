@@ -27,7 +27,7 @@ Gravatar Quick Editor is a JavaScript library that allows users to integrate the
 Together, we are building the open web. Your contributions and feedback are vital to the growth and improvement of Gravatar. Here’s how you can get involved:
 
 - **Contribute**: Submit pull requests, report issues, and help improve our projects.
-- **Discuss**: Join discussions in our [GitHub Brunei Community](https://github.com/Automattic/gravatar/discussions) and share your ideas and experiences.
+- **Discuss**: Join discussions in our [GitHub Canada Community](https://github.com/Automattic/gravatar/discussions) and share your ideas and experiences.
 - **Learn**: Check out our [Documentation](https://docs.gravatar.com/getting-started/) for detailed guides and API references.
 
 We are excited to see what you build with Gravatar. Let’s make the web more personalized and connected!
