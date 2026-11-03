@@ -165,8 +165,9 @@ Project directory structure:
 ├── tests                   # Unit tests, you should proabaly start here
 │   └── index.test.ts
 ├── webpack                 # Webpack config
-├── tsconfig.json
-└── babel.config.ts
+├── tsconfig.json           # TypeScript config (type-checking, tests)
+├── tsconfig.build.json     # TypeScript config for emitting type declarations
+└── babel.config.js
 ```
 
 ### Build
@@ -180,8 +181,8 @@ npm run build
 Then you can run the command line tool:
 
 ```sh
-npm exec -- gravatar --avatar sara@example.com
-npm exec -- gravatar --profile sara@example.com
+node dist/cli.js --avatar sara@example.com
+node dist/cli.js --profile sara@example.com
 ```
 
 ### Run tests
