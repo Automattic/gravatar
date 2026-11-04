@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'web/packages/hovercards/**'
+      - 'package.json'
+      - 'package-lock.json'
 
 jobs:
   build:
@@ -14,3 +16,4 @@ jobs:
       - uses: preactjs/compressed-size-action@66325aad6443cb7cf89c4bfcd414aea2367cda94 # 2.9.1
         with:
           cwd: web/packages/hovercards
+          comment-key: hovercards

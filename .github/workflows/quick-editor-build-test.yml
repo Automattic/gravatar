@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'web/packages/quick-editor/**'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/quick-editor-build-test.yml'
 
 jobs:
