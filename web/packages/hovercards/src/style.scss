@@ -13,6 +13,9 @@ $font-sf-pro: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Robo
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	text-overflow: ellipsis;
+
+	// Deprecated, but supported everywhere; keeps the current rendering.
+	// stylelint-disable-next-line declaration-property-value-keyword-no-deprecated
 	word-break: break-word;
 }
 

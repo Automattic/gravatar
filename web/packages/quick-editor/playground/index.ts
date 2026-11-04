@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 // @ts-ignore
 import { GravatarQuickEditor, GravatarQuickEditorCore } from '../dist';
 // @ts-ignore
