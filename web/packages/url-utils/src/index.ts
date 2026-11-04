@@ -62,7 +62,7 @@ function validateOptions( options: GravatarAvatarOptions ): void {
 		if ( ! Object.values( GravatarDefault ).includes( options.default as GravatarDefault ) ) {
 			try {
 				new URL( options.default );
-			} catch ( _ ) {
+			} catch {
 				// eslint-disable-next-line no-console
 				console.error(
 					"Invalid value for 'default'. It must be one of the accepted default image types or a valid URL."

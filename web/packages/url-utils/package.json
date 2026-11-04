@@ -17,10 +17,10 @@
 		"gravatar": "dist/cli.js"
 	},
 	"scripts": {
-		"test:unit": "wp-scripts test-unit-js",
-		"test:unit:help": "wp-scripts test-unit-js --help",
-		"test:unit:watch": "wp-scripts test-unit-js --watch",
-		"test:unit:debug": "wp-scripts --inspect-brk test-unit-js --runInBand --no-cache",
+		"test:unit": "wp-scripts test-unit-jest",
+		"test:unit:help": "wp-scripts test-unit-jest --help",
+		"test:unit:watch": "wp-scripts test-unit-jest --watch",
+		"test:unit:debug": "wp-scripts --inspect-brk test-unit-jest --runInBand --no-cache",
 		"format": "wp-scripts format",
 		"lint:js": "wp-scripts lint-js",
 		"lint:md": "wp-scripts lint-md-docs",
@@ -45,8 +45,9 @@
 	"module": "dist/index.mjs",
 	"devDependencies": {
 		"@babel/preset-typescript": "^7.24.7",
-		"@jest/globals": "^29.7.0",
+		"@jest/globals": "^30.5.2",
 		"@types/node": "^22.6.1",
+		"jest": "^30.5.2",
 		"lint-staged": "^15.2.10",
 		"npm-run-all2": "^9.0.4",
 		"release-it": "^17.4.0",
