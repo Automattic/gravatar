@@ -8,6 +8,9 @@ on:
       - 'package-lock.json'
       - '.github/workflows/quick-editor-build-test.yml'
 
+permissions:
+  contents: read
+
 jobs:
   build: 
     runs-on: ubuntu-latest

@@ -8,6 +8,10 @@ on:
       - 'package-lock.json'
       - '.github/workflows/hovercards-compressed-size.yml'
 
+permissions:
+  contents: read
+  pull-requests: write # Post the size comment
+
 jobs:
   build:
     runs-on: ubuntu-latest
