@@ -351,7 +351,7 @@ export default class Hovercards {
 		const isEditProfile = ! description && myHash === hash;
 		const jobInfo = [ jobTitle, company ].filter( Boolean ).join( ', ' );
 		const hasPayments = payments?.links?.length || payments?.crypto_wallets?.length;
-		const nonEmptyContacts = Object.entries( contactInfo || {} ).filter( ( [ _, value ] ) => !! value );
+		const nonEmptyContacts = Object.entries( contactInfo || {} ).filter( ( [ , value ] ) => !! value );
 
 		const renderSocialLinks = verifiedAccounts
 			.slice( 0, 3 )

@@ -11,21 +11,6 @@ module.exports = [
 		},
 	},
 	{
-		// Allow intentionally unused `_`-prefixed caught errors and destructured array
-		// elements, as the previous lint setup did.
-		files: [ '**/*.ts', '**/*.tsx' ],
-		rules: {
-			'@typescript-eslint/no-unused-vars': [
-				'error',
-				{
-					ignoreRestSiblings: true,
-					caughtErrorsIgnorePattern: '^_',
-					destructuredArrayIgnorePattern: '^_',
-				},
-			],
-		},
-	},
-	{
 		// Tooling config files load packages installed at the monorepo root.
 		files: [ 'eslint.config.js', '.prettierrc.js' ],
 		rules: {
